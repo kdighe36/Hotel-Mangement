@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Home Page of Hotel Management System</h2>
+<a href="/hotels/">Hotels</a>
+{% if logged_in %}
+<a href="#">Profile</a>
+<a href="/bookings/">Bookings</a>
+<a href="/logout/">Logout</a>
+{% endif %}
+{% endblock content %}

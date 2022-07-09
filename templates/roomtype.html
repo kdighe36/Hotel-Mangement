@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Add Room Type</h3>
+    {% if valid %}
+        <p style="color:green;">{{valid}}</p>
+    {% endif %}
+    {% if error %}
+        <p style="color:red;">{{error}}</p>
+    {% endif %}
+    <form action="/admin/room/type/add/" method="post">
+        <label>Room Type</label>
+        <input type="text" name="type" class="form-control mb-3"/>
+        <label>Rent Price</label>
+        <input type="text" name="price" class="form-control mb-3"/>
+        <label>Description</label>
+        <textarea name="description" class="form-control mb-3"></textarea>
+        <input type="submit" value="Add" class="btn btn-sm btn-primary">
+
+    </form>
+{% endblock content %}

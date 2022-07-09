@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for room in rooms %}
+    <table>
+        <tr>
+            <td>Room Type</td>
+            <td colspan="2">{{room[6]}}</td>
+        </tr>
+        <tr>
+            <td>Room Size</td>
+            <td colspan="2">{{room[3]}}</td>
+        </tr>
+        <tr>
+            <td>Location</td>
+            <td colspan="2">{{room[4]}}</td>
+        </tr>
+        <tr>
+            <td>Rent Price Per Day</td>
+            <td colspan="2">{{room[7]}}</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td colspan="2">{{room[8]}}</td>
+        </tr>
+        <tr>
+            <td>Duration</td>
+            <td>
+                <form action="/rooms/book/{{room[0]}}" method="POST">
+                    <input name="from" type="date">
+                    <input name="to" type="date">
+                    <input type="Submit" value="Book">
+                </form>
+            </td>
+            <tr>
+    </table>
+    <hr/>
+    {% endfor %}
+            
+{% endblock content %}

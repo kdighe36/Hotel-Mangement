@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    <table>
+        <tr>
+            <th>Customer ID</th>
+            <th>Booking ID</th>
+            <th>Username</th>
+            <th>Room ID</th>
+            <th>Booking Date/Time</th>
+            <th>No. of Booking Days</th>
+            <th>Booking Status</th>
+            {% if admin %}
+                <th>Approve/Decline</th>
+            {% else %}
+                <th>Pay/Cancel</th>
+            {% endif %}
+        </tr>
+        {% for booking in bookings %}
+            <tr>
+                <td>{{booking[1]}}</td>
+                <td>{{booking[0]}}</td>
+                <td>{{booking[14]}}</td>
+                <td>{{booking[2]}}</td>
+                <td>{{booking[3]}}</td>
+                <td>{{booking[4]}}</td>
+                <td>{{booking[5]}}</td>
+                {% if booking[5]=="DECLINED" or booking[5]=="CANCELLED" or booking[5]=="PAID"%}
+                    <td>-----</td>
+                {% else %}
+                    {% if admin %}
+                        <td><a href="/admin/approve/{{booking[0]}}/">Approve</a><a href="/admin/decline/{{booking[0]}}/">Decline</a></td>
+                    {% else %}
+                        <td><a href="/payment/{{booking[0]}}/">Pay</a><a href="/cancel/{{booking[0]}}/">Cancel</a></td>
+                    {% endif %}
+                {% endif %}
+                
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Login</h3>
+            {% if error %}
+                <p>{{error}}</p>
+            {% endif %}
+            {% if admin %}
+                <form action="/admin/login/" method="post">
+            {% else %}
+                <form action="/login/" method="post">
+            {% endif %}
+                <label>Username</label>
+                <input type="text" name="username" class="form-control mb-3" required />
+                
+
+                <label>Password</label>
+                <input type="password" name="password" class="form-control mb-3" required />
+
+                
+                <input type="submit" class="btn btn-sm btn-primary" value="Login">
+
+
+
+
+
+               
+
+                <!-- <button class="btn btn-sm btn-primary">Submit</button> -->
+            </form>
+{% endblock content %}

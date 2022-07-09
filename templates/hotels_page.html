@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+This Page contains all hotels List
+{% for hotel in hotels %}
+    <a href="/hotels/{{hotel[0]}}/">{{hotel[1]}} Hotel</a>
+{% endfor %}
+
+{% if admin %}
+<a href="/admin/hotels/add/">Add Hotel</a>
+{% endif %}
+{% endblock content %}

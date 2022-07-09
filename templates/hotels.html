@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Hotels</h3>
+    {% if valid %}
+    <p style="color:green;">{{valid}}</p>
+    {% endif %}
+    {% if error %}
+    <p style="color:red;">{{error}}</p>
+    {% endif %}
+    <form action="/admin/hotels/add/" method="post">
+        <label>Hotel Name</label>
+        <input type="text" name="name" class="form-control mb-3"/>
+        <label>Hotel Type</label>
+        <select name="type" class="form-control mb-3">
+        <option value="type1">type 1</option>
+        <option value="type2">type 2</option>
+    </select>
+        
+        
+        <label>Capacity</label>
+        <input type="text" name="capacity" class="form-control mb-3"/>
+
+        <label>Phone</label>
+        <input type="text" name="phone" class="form-control mb-3"/>
+
+        <label>Email</label>
+        <input type="email" name="email" class="form-control mb-3"/>
+
+        <label>City</label>
+        <input type="text" name="city" class="form-control mb-3"/>
+
+        <label>Address</label>
+    <textarea name="address" class="form-control mb-3"></textarea>
+
+    <label>Description</label>
+    <textarea name="description" class="form-control mb-3"></textarea>
+
+        <input type="submit" class="btn btn-sm btn-primary" value="Add">
+    </form>
+{% endblock content %}

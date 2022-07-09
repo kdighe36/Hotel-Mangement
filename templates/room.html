@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Add Room</h3>
+    {% if valid %}
+        <p style="color:green;">{{valid}}</p>
+    {% endif %}
+    {% if error %}
+        <p style="color:red;">{{error}}</p>
+    {% endif %}
+    <form action="/admin/room/add/" method="post">
+        <label> Hotel Name</label>
+        <select name="name" class="form-control mb-3">
+            {% for hotel in hotels %}
+                <option value="{{hotel[0]}}">{{hotel[1]}}</option>
+            {% endfor %}
+        </select>
+        <label>Room Type </label>
+        <select name="type" class="form-control mb-3">
+            {% for type in room_types %}
+                <option value="{{type[0]}}">{{type[1]}}</option>
+            {% endfor %}
+        </select>
+        <label>Room Size</label>
+        <input type="text" name="size" class="form-control mb-3" />
+
+        <label>Location</label>
+        <input type="text" name="location" class="form-control mb-3" />
+
+        <input type="submit" value="Add" class="btn btn-sm btn-primary"> 
+    </form>
+{% endblock content %}
